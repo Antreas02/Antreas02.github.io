@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andreas Adamou — Computer Science Graduate</title>
+<meta name="description" content="Andreas Adamou — Computer Science graduate from Neapolis University Pafos. Robotics, computer vision, and web development.">
+<meta name="theme-color" content="#0b0c0d">
+
+<meta property="og:title" content="Andreas Adamou — Computer Science Graduate">
+<meta property="og:description" content="Computer Science graduate. Robotics, computer vision, and web development.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230b0c0d%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 fill=%22%23ff8a3d%22 font-family=%22monospace%22 text-anchor=%22middle%22>A</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg: #0b0c0d;
+    --bg-elevated: #131416;
+    --line: #232527;
+    --text: #eef0f0;
+    --text-dim: #9a9fa6;
+    --text-faint: #55595f;
+    --accent: #ff8a3d;
+    --accent-soft: rgba(255,138,61,0.12);
+    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+    --max: 760px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(11,12,13,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:var(--max); margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between;}
+  .nav-mark{font-family:var(--font-mono); font-size:13px; letter-spacing:0.5px; color:var(--text-dim);}
+  .nav-links{display:flex; gap:20px; font-family:var(--font-mono); font-size:13px;}
+  .nav-links a{color:var(--text-dim); text-decoration:none; transition:color 0.15s;}
+  .nav-links a:hover{color:var(--accent);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 72px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:2px;
+    color:var(--accent); text-transform:uppercase; margin:0 0 18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:16px; height:1px; background:var(--accent); display:inline-block;}
+  h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05; margin:0 0 20px; font-weight:700; letter-spacing:-0.02em;
+  }
+  .lede{font-size:17px; color:var(--text-dim); max-width:56ch; margin:0 0 32px;}
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono); font-size:13px; text-decoration:none;
+    padding:11px 18px; border-radius:6px; letter-spacing:0.3px;
+    display:inline-flex; align-items:center; gap:8px; transition:all 0.15s;
+  }
+  .btn-primary{background:var(--accent); color:#0b0c0d; font-weight:500;}
+  .btn-primary:hover{background:#ffa563;}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0; border-top:1px solid var(--line);}
+  .section-head{margin-bottom:36px;}
+  h2{font-size:22px; margin:6px 0 0; font-weight:600; letter-spacing:-0.01em;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{list-style:none; margin:0; padding:0; position:relative;}
+  .timeline::before{content:""; position:absolute; top:4px; bottom:4px; left:5px; width:1px; background:var(--line);}
+  .timeline-item{position:relative; padding-left:32px; margin-bottom:34px;}
+  .timeline-item:last-child{margin-bottom:0;}
+  .timeline-item::before{
+    content:""; position:absolute; left:0px; top:5px; width:10px; height:10px;
+    background:var(--bg); border:1.5px solid var(--accent); transform:rotate(45deg);
+  }
+  .timeline-item.minor::before{border-color:var(--text-faint);}
+  .role-row{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px; margin-bottom:6px;}
+  .role{font-weight:600; font-size:16px;}
+  .org{color:var(--text-dim); font-weight:400;}
+  .date{font-family:var(--font-mono); font-size:12px; color:var(--text-faint); white-space:nowrap;}
+  .loc{font-family:var(--font-mono); font-size:12px; color:var(--text-faint); margin-bottom:10px;}
+  .timeline-item ul{margin:8px 0 0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
+  .timeline-item ul li{margin-bottom:5px;}
+  .timeline-item p.compact{color:var(--text-dim); font-size:14.5px; margin:2px 0 0;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{border:1px solid var(--line); border-radius:10px; padding:24px; background:var(--bg-elevated);}
+  .edu-card h3{margin:0 0 4px; font-size:17px;}
+  .edu-card .org{display:block; margin-bottom:2px;}
+  .edu-card ul{margin:14px 0 0; padding-left:18px; color:var(--text-dim); font-size:14.5px;}
+  .edu-card ul li{margin-bottom:6px;}
+  .thesis-tag{
+    display:inline-block; margin-top:14px; font-family:var(--font-mono); font-size:12px;
+    color:var(--accent); background:var(--accent-soft); padding:5px 10px; border-radius:5px;
+  }
+
+  /* ---------- PROJECT / THESIS ---------- */
+  .project-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;}
+  @media (max-width:640px){ .project-grid{grid-template-columns:1fr; gap:24px;} }
+  .project-text h3{font-size:19px; margin:0 0 12px;}
+  .project-text p{color:var(--text-dim); font-size:14.5px; margin:0 0 16px;}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+    border:1px solid var(--line); padding:4px 9px; border-radius:5px;
+  }
+  .diagram{border:1px solid var(--line); border-radius:10px; background:var(--bg-elevated); padding:16px;}
+  .diagram svg{width:100%; height:auto; display:block;}
+
+  /* ---------- SKILLS ---------- */
+  .skill-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px;}
+  .skill-row:last-child{margin-bottom:0;}
+  .chip{
+    font-family:var(--font-mono); font-size:13px; color:var(--text);
+    border:1px solid var(--line); padding:7px 13px; border-radius:6px;
+    transition:border-color 0.15s;
+  }
+  .chip:hover{border-color:var(--accent);}
+  .skill-label{font-family:var(--font-mono); font-size:11px; letter-spacing:1.5px; color:var(--text-faint); text-transform:uppercase; margin-bottom:12px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:36px 0 48px;}
+  .footer-row{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;}
+  .footer-left{font-size:13.5px; color:var(--text-dim);}
+  .footer-links{display:flex; gap:18px; font-family:var(--font-mono); font-size:13px;}
+  .footer-links a{text-decoration:none; color:var(--text-dim);}
+  .footer-links a:hover{color:var(--accent);}
+  .footer-note{font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); margin-top:18px;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.5s ease, transform 0.5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="nav-mark">AA / cs graduate</span>
+    <nav class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#project">Project</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero" style="border-top:none; padding-bottom:0;">
+    <p class="eyebrow">Pafos, Cyprus</p>
+    <h1>Andreas Adamou</h1>
+    <p class="lede">Computer Science graduate who likes turning ambiguous problems into working systems — from tuning a robot's vision pipeline in the lab, to shipping real pages for real clients. Comfortable working solo or inside a team, and always looking for the next thing to learn.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:antreasadamou22@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://github.com/Antreas02" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="section-head">
+      <p class="eyebrow">Experience</p>
+      <h2>Where I've worked</h2>
+    </div>
+    <ul class="timeline">
+      <li class="timeline-item">
+        <div class="role-row">
+          <span class="role">Web Development Intern <span class="org">— eAdvertise</span></span>
+          <span class="date">Mar – Apr 2026</span>
+        </div>
+        <div class="loc">Pafos, Cyprus</div>
+        <ul>
+          <li>Maintained and customized WordPress sites — content, page building, and system configuration.</li>
+          <li>Built UI updates in Elementor to improve usability across client sites.</li>
+          <li>Organized structured data for business directories: categories, locations, listings, and media.</li>
+          <li>Tested and debugged live sites, working closely with the development team.</li>
+        </ul>
+      </li>
+      <li class="timeline-item minor">
+        <div class="role-row">
+          <span class="role">Waiter <span class="org">— Pafos Gardens Hotel</span></span>
+          <span class="date">Jun 2024 – Oct 2025</span>
+        </div>
+        <div class="loc">Pafos, Cyprus</div>
+        <p class="compact">Delivered service in a fast-paced hospitality setting — built strong teamwork, time management, and reliability under pressure.</p>
+      </li>
+      <li class="timeline-item minor">
+        <div class="role-row">
+          <span class="role">Waiter <span class="org">— Genadio's Souvlakia Restaurant</span></span>
+          <span class="date">Mar – Nov 2022</span>
+        </div>
+        <div class="loc">Pafos, Cyprus</div>
+        <p class="compact">Handled orders and customers in a high-demand food service environment, sharpening communication and multitasking.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="section-head">
+      <p class="eyebrow">Education</p>
+      <h2>Neapolis University Pafos</h2>
+    </div>
+    <div class="edu-card">
+      <h3>BSc in Applied Computer Science</h3>
+      <span class="org">School of Economics, Administration and Computer Science — Dept. of Computer Science</span>
+      <span class="date">Oct 2022 – Jun 2026</span>
+      <ul>
+        <li>Core foundations in programming, algorithms, data structures, and software engineering.</li>
+        <li>Coursework spanning databases, operating systems, computer networks, and web technologies.</li>
+        <li>Applied AI, problem-solving, and system design through academic projects.</li>
+      </ul>
+      <span class="thesis-tag">Dissertation → see featured project below</span>
+    </div>
+  </section>
+
+  <section id="project" class="reveal">
+    <div class="section-head">
+      <p class="eyebrow">Thesis Project</p>
+      <h2>Vision-based navigation for a line-following robot</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-text">
+        <h3>Design and experimental evaluation of vision-based navigation strategies</h3>
+        <p>Built and tested a Raspberry Pi 5 robotic platform to compare navigation strategies head-to-head — a baseline vision algorithm, Dynamic ROI, Adaptive Threshold, and Dynamic Threshold — against a traditional IR-sensor baseline, measuring accuracy, stability, and performance.</p>
+        <div class="tag-row">
+          <span class="tag">Raspberry Pi 5</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Robotics</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="diagram">
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="8" width="304" height="204" rx="6" fill="none" stroke="var(--line)" stroke-width="1.5"/>
+          <path d="M24 188 C 90 130, 130 200, 190 140 S 290 70, 296 34" fill="none" stroke="var(--text-faint)" stroke-width="3" stroke-linecap="round"/>
+          <rect x="150" y="66" width="76" height="58" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="152" y="58" fill="var(--accent)" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="1">ROI</text>
+          <line x1="8" y1="156" x2="312" y2="156" stroke="var(--accent)" stroke-width="1" stroke-dasharray="2 4" opacity="0.55"/>
+          <text x="14" y="150" fill="var(--accent)" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="1" opacity="0.85">THRESHOLD</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="section-head">
+      <p class="eyebrow">Skills</p>
+      <h2>Tools &amp; languages</h2>
+    </div>
+    <div class="skill-label">Programming &amp; tools</div>
+    <div class="skill-row">
+      <span class="chip">Java</span>
+      <span class="chip">C++</span>
+      <span class="chip">Python</span>
+      <span class="chip">HTML</span>
+      <span class="chip">CSS</span>
+      <span class="chip">WordPress</span>
+      <span class="chip">Elementor</span>
+      <span class="chip">Git</span>
+    </div>
+    <div class="skill-label">Working style</div>
+    <div class="skill-row">
+      <span class="chip">Problem Solving</span>
+      <span class="chip">Teamwork</span>
+    </div>
+    <div class="skill-label">Languages</div>
+    <div class="skill-row">
+      <span class="chip">Greek — Native</span>
+      <span class="chip">English — Fluent</span>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-left">Andreas Adamou · Pafos, Cyprus</div>
+      <div class="footer-links">
+        <a href="mailto:antreasadamou22@gmail.com">Email</a>
+        <a href="https://github.com/Antreas02" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-note">Built with HTML &amp; CSS · hosted on GitHub Pages · <span id="year"></span></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    var revealEls = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
