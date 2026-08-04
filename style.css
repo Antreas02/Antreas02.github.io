@@ -1,16 +1,20 @@
 :root {
-    --bg: #fbfaf7;
+    --bg: #f8fafc;
     --bg-card: #ffffff;
-    --bg-cream: #fdf3e6;
-    --line: #e9e5dc;
-    --text: #201f1c;
-    --text-dim: #6f6c64;
-    --text-faint: #a5a199;
-    --accent: #ec7c2b;
-    --accent-soft: rgba(236, 124, 43, 0.1);
+    --bg-cream: #eef2ff;
+    --line: #e7eaf2;
+
+    --text: #20243a;
+    --text-dim: #636b7c;
+    --text-faint: #9ca3b8;
+
+    --accent: #4f46e5;
+    --accent-soft: rgba(79, 70, 229, .10);
+
+    --shadow: 0 16px 40px rgba(15, 23, 42, .10);
+
     --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
-    --shadow: 0 1px 2px rgba(30, 24, 12, 0.04), 0 12px 28px -14px rgba(30, 24, 12, 0.12);
 }
 
 * {
@@ -163,6 +167,49 @@ button:focus-visible {
     color: var(--accent);
 }
 
+/* ---------- LOGO BADGES ---------- */
+.heading-with-logo,
+.role-with-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.entry-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+    padding: 4px;
+}
+
+.entry-logo-initials {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.cv-label {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
 /* ---------- CONTENT ---------- */
 .content {
     flex: 1;
@@ -172,15 +219,12 @@ button:focus-visible {
 main.content>section {
     background: var(--bg-card);
     border: 1px solid var(--line);
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 36px 40px;
     margin-bottom: 26px;
     box-shadow: var(--shadow);
 }
 
-#project {
-    background: linear-gradient(135deg, #fffaf3, var(--bg-cream));
-}
 
 .section-head {
     margin-bottom: 30px;
@@ -260,7 +304,7 @@ h2 {
 .role-row {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 8px;
     margin-bottom: 6px;
@@ -337,15 +381,21 @@ h2 {
     color: var(--accent);
     background: var(--accent-soft);
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 6px;
+    transition: all .2s ease;
+}
+
+.thesis-tag:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* ---------- PROJECT / THESIS ---------- */
 .project-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 36px;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 24px;
 }
 
 @media (max-width:640px) {
@@ -380,6 +430,15 @@ h2 {
     border: 1px solid var(--line);
     padding: 4px 10px;
     border-radius: 999px;
+    transition: all .2s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
 }
 
 .diagram {
@@ -411,16 +470,19 @@ h2 {
     font-family: var(--font-mono);
     font-size: 13px;
     color: var(--text);
-    background: var(--bg);
-    border: 1px solid var(--line);
+    background: #ffffff;
+    border: 1px solid #dde3ef;
     padding: 7px 14px;
     border-radius: 999px;
-    transition: border-color 0.15s;
+
+    transition: all .2s ease;
 }
 
 .chip:hover {
     border-color: var(--accent);
     color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
 }
 
 .skill-label {
@@ -471,6 +533,7 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 700px) {
