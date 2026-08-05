@@ -538,24 +538,81 @@ footer {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 700px) {
     .layout {
-        flex-direction: column;
-        gap: 32px;
-        padding: 32px 20px 60px;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px 14px 50px;
     }
 
     .sidebar {
-        position: static;
-        flex: none;
-        width: 100%;
+        flex: 0 0 132px;
+        top: 20px;
+    }
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+
+    .sidebar h1 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .location {
+        font-size: 10px;
+        gap: 4px;
+        margin-bottom: 14px;
+    }
+
+    .location svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    .bio {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    .social-row {
+        gap: 6px;
+        margin: 16px 0 20px;
+    }
+
+    .icon-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .icon-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .cv-label {
+        font-size: 10px;
     }
 
     .side-nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 16px;
+        gap: 10px;
+        padding-top: 16px;
+        font-size: 10.5px;
     }
 
     main.content>section {
-        padding: 26px 22px;
+        padding: 20px 16px;
+    }
+
+    .heading-with-logo,
+    .role-with-logo {
+        gap: 8px;
+    }
+
+    .entry-logo,
+    .entry-logo-initials {
+        width: 36px;
+        height: 36px;
     }
 }
