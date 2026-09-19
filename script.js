@@ -1,17 +1,31 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+const root = document.documentElement;
+const themeToggle = document.getElementById("theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
 
-var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!prefersReduced && 'IntersectionObserver' in window) {
-    var revealEls = document.querySelectorAll('.reveal');
-    var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in');
-                io.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { io.observe(el); });
-} else {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+function applyTheme(theme) {
+    root.dataset.theme = theme;
+
+    const darkMode = theme === "dark";
+    const nextMode = darkMode ? "light" : "dark";
+
+    themeToggle.setAttribute("aria-pressed", darkMode);
+    themeToggle.setAttribute("aria-label", `Switch to ${nextMode} mode`);
+    themeToggle.setAttribute("title", `Switch to ${nextMode} mode`);
+    themeColor.setAttribute("content", darkMode ? "#0b0d10" : "#f4f1ea");
 }
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+applyTheme(savedTheme || systemTheme);
+
+themeToggle.addEventListener("click", function () {
+    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+
+    applyTheme(nextTheme);
+    localStorage.setItem("portfolio-theme", nextTheme);
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
